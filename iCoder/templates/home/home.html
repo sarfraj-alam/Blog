@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block homeactive%} active {% endblock homeactive %}
+{% block body %}
+<div class="container my-4">
+    <div class="jumbotron bg-danger">
+      <h1 class="display-4" >Welcome to our Blog </h1>
+      <p class="lead">Here You Will get BlogPosts Regarding Programming Languages or Codings.</p>
+      <hr class="my-4">
+        <img src="/static/Blog_Post.jpg" alt="user">
+      <p class="my-2">Click on the button given below to see all the BlogPosts.</p>
+      <a class="btn btn-primary btn-lg" href="/blog" role="button">Go to Blogs</a>
+    </div>
+</div>
+{% endblock body %}

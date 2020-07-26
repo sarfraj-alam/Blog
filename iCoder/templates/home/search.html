@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Search Results {% endblock title %}
+{% block blogactive%} active {% endblock blogactive %}
+{% block body %}
+<div class="container my-3">
+  <h2> Related Search Blogs :  </h2>
+    {% if allPosts|length < 1 %}
+    Your search query : <b><u><i>{{ search }} </i> </u> </b> did not match with any present BlogPosts. <br>
+    Suggestions : <br>
+    <ul>
+        <li> <strong> Try another keywords</strong></li>
+        <li> <strong> Make sure you have spelled correctly</strong></li>
+        <li> <strong> Try more general keywords</strong></li>
+        <li> <strong> Try fewer keywords</strong></li>
+    </ul>
+    {% endif %}
+  {% for post in allPosts %}
+  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+    <div class="col p-4 d-flex flex-column position-static">
+      <strong class="d-inline-block mb-2 text-primary">Article by {{post.author}}</strong>
+      <h3 class="mb-0">{{post.title}}</h3>
+      <div class="mb-1 text-muted">{{post.timeStamp}}</div>
+      <p class="card-text mb-auto">{{post.content| truncatechars:300}}</p>
+      <a href="/blog/{{post.slug}}"  class="stretched-link">Continue reading</a>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endblock body %}
